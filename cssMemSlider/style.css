@@ -1,5 +1,9 @@
 @import url('/normalize.css');
 
+* {
+	box-sizing: border-box;
+}
+
 body {
 	height: 100%;
 	width: 100%;
@@ -8,10 +12,12 @@ body {
 .wrapper {
 	height: 100%;
 	width: 100%;
+	overflow: hidden;
 }
 
 ._container {
 	margin: 20px;
+	overflow: hidden;
 }
 
 ._img {
@@ -26,30 +32,136 @@ body {
 .main__mem {
 	display: flex;
 	flex-direction: column;
-}
-.mem__top {
-}
-
-.mem__top_container {
-	height: 90vh;
 	position: relative;
+}
+/*---TOP---*/
+.mem__top {
+	/*overflow: hidden;*/
+	height: 80vh;
 	width: 100%;
 }
 
-.button:checked {
-
+.mem__top-slides {
+	height: 100%;
+	width: 400%;
+	display: flex;
 }
+
+.slide {
+	position: relative;
+	width: 25%;
+	transition: all 0.5s ease;
+}
+
+#btn-1:checked ~ .active {
+	margin-left: 0;
+}
+#btn-2:checked ~ .active {
+	margin-left: -25%;
+}
+#btn-3:checked ~ .active {
+	margin-left: -50%;
+}
+#btn-4:checked ~ .active {
+	margin-left: -75%;
+}
+
+.button[name='button-hidden'] {
+	position: absolute;
+	visibility: hidden;
+}
+
+.slide-1::after {
+	content: 'Mem-1';
+	position: absolute;
+	bottom: 0;
+	transform: translate(0, 40px);
+	left: 10px;
+	height: 30px;
+	
+}
+
+.slide-2::after {
+	content: 'Mem-2';
+	position: absolute;
+	bottom: 0;
+	transform: translate(0, 40px);
+	left: 10px;
+	height: 30px;
+}
+
+.slide-3::after {
+	content: 'Mem-3';
+	position: absolute;
+	bottom: 0;
+	transform: translate(0, 40px);
+	left: 10px;
+	height: 30px;
+}
+
+.slide-4::after {
+	content: 'Mem-4';
+	position: absolute;
+	bottom: 0;
+	transform: translate(0, 40px);
+	left: 10px;
+	height: 30px;
+}
+
+/*-------BOTTOM------------*/
 
 .mem__bottom {
 	background: #555;
 	align-content: center;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+	height: 40px;
+	width: 100%;
+	padding: 0 10px;
 }
 
-.mem__bottom-handler {}
+/*--------TITLE---------*/
 
+.title {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 25%;
+	/*visibility: hidden;*/
+	
+	margin: 0 0 0 10px;
+	
+}
+
+
+/*--------HANDLERS---------*/
 .mem__bottom-title {
 	font-size: 16px;
 	color: red;
 }
+
+.mem__bottom-handlers {
+	display: flex;
+}
+
+.handler {
+	cursor: pointer;
+	background: #fff;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+}
+.handler:not(:last-child) {
+	margin-right: 10px;
+}
+.handler:hover {
+	background: #666;
+	transition: all 0.4s ease;
+}
+.handler:checked {
+	color: red;
+}
+
+
+
