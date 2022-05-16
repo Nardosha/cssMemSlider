@@ -2,6 +2,8 @@
 
 * {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
@@ -26,9 +28,7 @@ body {
 
 ._img {
 	height: 100%;
-	left: 0;
 	object-fit: cover;
-	top: 0;
 	width: 100%;
 	border-radius: 2%;
 	
@@ -49,20 +49,15 @@ body {
 .slider {
 	padding: 20px 0 0 0;
 	position: relative;
-	height: 100vh;
+	height: 95vh;
 	width: 400%;
 	display: flex;
+}
+
+.slide > :not(:last-child) {
 	margin: 0 0 20px 0;
 }
-.handlers {
-	position: absolute;
-	right: 0;
-	bottom: 5px;
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	min-height: 40px;
-}
+
 .slide {
 	display: flex;
 	flex-direction: column;
@@ -97,27 +92,30 @@ body {
 }
 
 .button[name='button-hidden'] {
-	position: absolute;
-	visibility: hidden;
+	display: none;
 }
 
 
 /*--------HANDLERS---------*/
+.handlers {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin: 0 0 10px 0;
+}
+
 .handler__container {
 	position: relative;
-	padding: 10px;
+	padding: 5px;
 	cursor: pointer;
-	min-width: 20px;
-	min-height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .handler {
 	cursor: pointer;
 	display: block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 	width: 10px;
 	height: 10px;
 	background-color: rgba(225, 147, 222, 1);
